@@ -1,0 +1,10 @@
+# remove existing nvidia-dirver
+sudo apt-get --purge remove nvidia*
+sudo reboot
+
+# update nvidia driver
+sudo apt-add-repository ppa:graphics-drivers/ppa
+sudo apt-get update
+
+
+
