@@ -20,7 +20,7 @@ sudo apt-get -y install vim git make htop nload openssh-client openssh-server \
 
 # Install docker
 cd ${SCRIPT_PATH}
-./install_docker.sh
+bash -i install_docker.sh
 
 # Install cuda
 cd ~/Downloads
@@ -51,4 +51,4 @@ sudo dpkg -i nvidia-docker*.deb
 
 # Install pyenv
 cd ${SCRIPT_PATH}
-./install_pyenv.sh
+bash -i install_pyenv.sh

@@ -8,10 +8,12 @@ ANACONDA_FILE=${ANACONDA_FILE:-"Anaconda2-4.1.1-Linux-x86_64.sh"}
 # Install pyenv
 cd ${HOME}
 proxy_on bash
+proxy_on git
 /usr/bin/curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
 proxy_off bash
+proxy_off git
 
-export PATH="/home/lanlin/.pyenv/bin:$PATH"
+export PATH="${HOME}/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
@@ -35,7 +37,7 @@ pip install tensorlayer
 
 pyenv deactivate
 
-echo 'export PATH="/home/lanlin/.pyenv/bin:$PATH"' >> ~/.bashrc
+echo 'export PATH="${HOME}/.pyenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 echo "" >> ~/.bashrc
