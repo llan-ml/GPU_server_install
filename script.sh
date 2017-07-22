@@ -53,6 +53,3 @@ sudo dpkg -i nvidia-docker*.deb
 cd ${SCRIPT_PATH}
 bash -i install_pyenv.sh
 
-# Install kubeadm
-cd ${SCRIPT_PATH}
-bash -i install_kubeadm.sh
