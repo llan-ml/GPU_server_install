@@ -11,8 +11,6 @@ SCRIPT_PATH=$(cd `dirname $0`; pwd)
 
 # Update source
 sudo cp sources.list /etc/apt
-sudo apt-get update
-sudo apt-get -y install ubuntu-extras-keyring
 
 # Install some packages
 sudo apt-get update && sudo apt-get -y upgrade
