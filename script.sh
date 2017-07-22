@@ -9,7 +9,7 @@ NVIDIA_DOCKER_FILE=${NVIDIA_DOCKER_FILE:-"nvidia-docker_1.0.0.rc.3-1_amd64.deb"}
 
 SCRIPT_PATH=$(cd `dirname $0`; pwd)
 
-# Update source aliyun
+# Update source
 sudo cp sources.list /etc/apt
 sudo apt-get update
 sudo apt-get -y install ubuntu-extras-keyring
@@ -51,5 +51,6 @@ sudo dpkg -i nvidia-docker*.deb
 #sudo dpkg -i nvidia-docker*.deb && rm nvidia-docker*.deb
 #nvidia-docker run --rm nvidia/cuda nvidia-smi
 
-
-
+# Install pyenv
+cd ${SCRIPT_PATH}
+./install_pyenv.sh

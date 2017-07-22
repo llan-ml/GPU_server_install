@@ -5,12 +5,10 @@ trap "exit 2" SIGHUP SIGINT SIGTERM ERR
 ANACONDA_VERSION=${ANACONDA_VERSION:-"anaconda2-4.1.1"}
 ANACONDA_FILE=${ANACONDA_FILE:-"Anaconda2-4.1.1-Linux-x86_64.sh"}
 
-CA_PATH=""
-
 # Install pyenv
 cd ${HOME}
 proxy_on bash
-curl -L --cacert ${CA_PATH} https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+/usr/bin/curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
 proxy_off bash
 
 export PATH="/home/lanlin/.pyenv/bin:$PATH"
