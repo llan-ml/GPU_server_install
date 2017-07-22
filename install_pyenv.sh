@@ -2,8 +2,8 @@
 
 trap "exit 2" SIGHUP SIGINT SIGTERM ERR
 
-ANACONDA_VERSION="anaconda2-4.1.1"
-ANACONDA_FILE="Anaconda2-4.1.1-Linux-x86_64.sh"
+ANACONDA_VERSION=${ANACONDA_VERSION:-"anaconda2-4.1.1"}
+ANACONDA_FILE=${ANACONDA_FILE:-"Anaconda2-4.1.1-Linux-x86_64.sh"}
 
 CA_PATH=""
 

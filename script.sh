@@ -2,10 +2,10 @@
 
 trap "exit 2" SIGHUP SIGINT SIGTERM ERR
 
-CUDA_VERSION="8.0"
-CUDA_FILE="cuda-repo-ubuntu1404-8-0-local_8.0.44-1_amd64.deb"
-CUDNN_FILE="cudnn-8.0-linux-x64-v5.1.tgz"
-NVIDIA_DOCKER_FILE="nvidia-docker_1.0.0.rc.3-1_amd64.deb"
+CUDA_VERSION=${CUDA_VERSION:-"8.0"}
+CUDA_FILE=${CUDA_FILE:-"cuda-repo-ubuntu1404-8-0-local_8.0.44-1_amd64.deb"}
+CUDNN_FILE=${CUDNN_FILE:-"cudnn-8.0-linux-x64-v5.1.tgz"}
+NVIDIA_DOCKER_FILE=${NVIDIA_DOCKER_FILE:-"nvidia-docker_1.0.0.rc.3-1_amd64.deb"}
 
 SCRIPT_PATH=$(cd `dirname $0`; pwd)
 
