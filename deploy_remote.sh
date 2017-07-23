@@ -79,6 +79,7 @@ ssh -t ${root_node} ' /bin/bash -i -c "
   set -e
   apt update
   apt install -y kubelet kubeadm
+  sudo mv /etc/apt/sources.list.d/kubernetes.list /etc/apt/sources.list.d/kubernetes.list.bak
   proxy_off apt
   proxy_off bash
 "'
