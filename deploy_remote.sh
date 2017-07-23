@@ -3,6 +3,7 @@
 set -e
 
 remote_node="llan@192.168.239.145"
+root_node="llan@192.168.239.145"
 sources_list="${HOME}/Desktop/sources.list"
 HTTP_HOST="219.245.186.233"
 HTTP_PORT="8087"
@@ -58,10 +59,12 @@ ssh -t ${remote_node} " /bin/bash -i -c '
 ssh -t ${remote_node:-""} ' /bin/bash -i -c "
   set -e
   sudo snap install kubectl --classic
-#  echo 'source <(kubectl completion bash)' >> ~/.bashrc
+:<<eof
+  echo 'source <(kubectl completion bash)' >> ~/.bashrc
+eof
 "'
 # Install kubelet and kubeadm
-ssh -t root@localhost ' /bin/bash -i -c "
+ssh -t ${root_node} ' /bin/bash -i -c "
   set -e
   apt update && apt -y install apt-transport-https
   proxy_on apt
@@ -69,8 +72,14 @@ ssh -t root@localhost ' /bin/bash -i -c "
   source \${HOME}/.bashrc
   curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
   echo 'deb http://apt.kubernetes.io/ kubernetes-xenial main' > /etc/apt/sources.list.d/kubernetes.list
-  apt-get update
-  apt-get install -y kubelet kubeadm
+  apt update
+"'
+
+ssh -t ${root_node} ' /bin/bash -i -c "
+  set -e
+  apt update
+  apt install -y kubelet kubeadm
   proxy_off apt
   proxy_off bash
 "'
+
