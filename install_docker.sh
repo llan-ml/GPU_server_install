@@ -31,7 +31,3 @@ sudo apt-get -y install docker-engine=1.12.6-0~ubuntu-$(lsb_release -cs)
 sudo groupadd docker
 sudo usermod -aG docker $USER
 
-curl -SL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://89e6dbca.m.daocloud.io
-
-sudo systemctl daemon-reload
-sudo systemctl restart docker.service

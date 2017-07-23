@@ -21,6 +21,9 @@ sudo apt-get -y install vim git make htop nload openssh-client openssh-server \
 # Install docker
 cd ${SCRIPT_PATH}
 bash -i install_docker.sh
+curl -SL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://89e6dbca.m.daocloud.io
+sudo systemctl daemon-reload
+sudo systemctl restart docker.service
 
 # Install cuda
 cd ~/Downloads
