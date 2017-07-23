@@ -10,9 +10,9 @@ HTTPS_HOST="219.245.186.233"
 HTTPS_PORT="8087"
 
 CUDA_VERSION="8.0"
-CUDA_FILE="cuda-repo-ubuntu1404-8-0-local_8.0.44-1_amd64.deb"
+CUDA_FILE="cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64.deb"
 CUDNN_FILE="cudnn-8.0-linux-x64-v5.1.tgz"
-NVIDIA_DOCKER_FILE="nvidia-docker_1.0.0.rc.3-1_amd64.deb"
+NVIDIA_DOCKER_FILE="nvidia-docker_1.0.1-1_amd64.deb"
 
 ANACONDA_VERSION="anaconda2-4.4.0"
 ANACONDA_FILE="Anaconda2-4.4.0-Linux-x86_64.sh"
@@ -20,9 +20,11 @@ ANACONDA_FILE="Anaconda2-4.4.0-Linux-x86_64.sh"
 scp ${sources_list} ${remote_node}:~/
 ssh -t ${remote_node} ' /bin/bash -i -c "
   set -e
-  sudo sed -i 's/^\(PermitRootLogin \)[a-zA-Z-]*$/\1yes/g' /etc/ssh/sshd_config
+  sudo '"sed -i 's/^\(PermitRootLogin \)[a-zA-Z-]*$/\1yes/g'"' /etc/ssh/sshd_config
   sudo systemctl restart ssh.service
   sudo mv ~/sources.list /etc/apt/
+  sudo rm -rf /var/lib/apt/lists/*
+  sudo apt clean
   sudo apt update && sudo apt -y upgrade
   sudo apt -y install git
   git clone --depth 1 https://github.com/llan-ml/AutoProxy.git
