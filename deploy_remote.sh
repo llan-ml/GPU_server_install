@@ -59,10 +59,9 @@ ssh -t ${remote_node} " /bin/bash -i -c '
 ssh -t ${remote_node:-""} ' /bin/bash -i -c "
   set -e
   sudo snap install kubectl --classic
-:<<eof
-  echo 'source <(kubectl completion bash)' >> ~/.bashrc
-eof
 "'
+#echo 'source <(kubectl completion bash)' >> ~/.bashrc
+
 # Install kubelet and kubeadm
 ssh -t ${root_node} ' /bin/bash -i -c "
   set -e
