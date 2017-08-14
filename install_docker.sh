@@ -30,6 +30,6 @@ sudo apt-get -y install docker-engine=1.12.6-0~ubuntu-$(lsb_release -cs)
 
 sudo mv /etc/apt/sources.list.d/docker.list /etc/apt/sources.list.d/docker.list.bak
 
-sudo groupadd docker
-sudo usermod -aG docker $USER
+#sudo groupadd docker
+#sudo usermod -aG docker $USER
 
